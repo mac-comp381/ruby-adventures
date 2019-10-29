@@ -3,21 +3,37 @@ describe GoingLoopless do
   include GoingLoopless
 
   it "finds everyone who took on a certain role" do
+    assert_equal [@maurine, @iluminada, @deane, @shantay, @maryellen, @delora, @kimberli, @rosamond, @johnnie],
+      find_all_in_role("director", @people)
+
     assert_equal [@ilya, @shantay, @willette, @maryellen, @yvette, @rosamond],
       find_all_in_role("key grip", @people)
+
+    assert_equal [],
+      find_all_in_role("flergleglurmph", @people)
+
+    assert_equal [],
+      find_all_in_role("writer", [])
   end
 
   it "builds a movie's credits" do
     assert_equal [
-      "Delora Brekke (director)",
-      "Johnnie Glover (actor)",
-      "Willette Schowalter (key grip)",
-      "Kimberli Quigley (producer)",
-      "Shantay Gerhold (producer)",
-      "Ilya Harris (producer)",
-      "Shantay Gerhold (producer)"
-    ],
-    build_credits(@married_a_city, ["director", "writer", "actor", "key grip", "producer"])
+        "Delora Brekke (director)",
+        "Johnnie Glover (actor)",
+        "Willette Schowalter (key grip)",
+        "Kimberli Quigley (producer)",
+        "Shantay Gerhold (producer)",
+        "Ilya Harris (producer)",
+        "Shantay Gerhold (producer)"
+      ],
+      build_credits(@married_a_city, ["director", "writer", "actor", "key grip", "producer"])
+
+    assert_equal [
+        "Maurine Kuhic (writer)",
+        "Iluminada Halvorson (writer)",
+        "Deane Shanahan (director)"
+      ],
+      build_credits(@electric_tears, ["key grip", "writer", "director"])
   end
 
   it "lists a peron's movies" do
@@ -28,32 +44,16 @@ describe GoingLoopless do
         "The Flying Identity from Across the Ocean (2016)"
       ],
       list_movies(@iluminada)
+
+    assert_equal [
+        "The Danger Hills That Came to Dinner (1945)",
+        "I am Clash (1946)",
+        "I Married a City (1967)",
+        "The Ninja from Asteroid 6083 (2006)"
+      ],
+      list_movies(@delora)
   end
 
-  it "summarizes a person's roles" do
-    assert_equal [
-        ["producer", 4],
-        ["key grip", 2],
-        ["actor", 1],
-        ["writer", 1]
-      ],
-      summarize_roles(@yvette)
-    assert_equal [
-        ["writer", 3],
-        ["key grip", 2],
-        ["producer", 2],
-        ["director", 1]
-      ],
-      summarize_roles(@rosamond)
-  end
-
-  # it "has test data" do
-  #   @movies.each do |x|
-  #     puts
-  #     puts x.title
-  #     p build_credits(x)
-  #   end
-  # end
 
   # ––– Gobs o' mostly random test data –––
 
@@ -71,7 +71,7 @@ describe GoingLoopless do
       @kimberli  = Person.new(name: "Kimberli Quigley"),
       @rosamond  = Person.new(name: "Rosamond Kozey"),
       @johnnie   = Person.new(name: "Johnnie Glover"),
-    ]
+    ].freeze
 
     @movies = [
       @danger_hills     = Movie.new(year: 1945, title: "The Danger Hills That Came to Dinner"),
@@ -86,7 +86,7 @@ describe GoingLoopless do
       @nuclear_journals = Movie.new(year: 1989, title: "Day of the Nuclear Journals"),
       @electric_tears   = Movie.new(year: 1967, title: "The Electric Tears from the Black Lagoon"),
       @action_brain     = Movie.new(year: 1998, title: "The Action Brain, Part 2"),
-    ]
+    ].freeze
 
     Role.new(name: "director", person: @maryellen, movie: @fake_friday)
     Role.new(name: "producer", person: @ilya, movie: @ninja)

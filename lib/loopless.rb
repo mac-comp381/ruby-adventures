@@ -1,45 +1,43 @@
-# Convert each of the four methods in GoingLoopless to use Ruby’s
-# functional-stye list processing instead of loops.
-#
-# When you are done, there should be no calls to .each, and each
-# method should consist of a single statement.
-#
-# The following Ruby methods may help you:
-#
-#     map
-#     select
-#     include?
-#     sort_by
-#     group_by
-#     uniq
-#     with_index
-#
-# Ask me for hints! And remember to run the tests early and often.
-
 module GoingLoopless
   def find_all_in_role(role_name, people)
-    people.select { |p| p.roles.map(&:name).include?(role_name) }
+    results = []
+    people.each do |person|
+      person.roles.each do |role|
+        if role.name == role_name
+          results << person
+          break
+        end
+      end
+    end
+    results
   end
 
   def build_credits(movie, role_order)
-    movie.roles
-      .sort_by { |role| role_order.find_index(role.name) || role_order.length }
-      .map { |role, index| "#{role.person.name} (#{role.name})" }
+    results = []
+    role_order.each do |role_name|
+      movie.roles.each do |role|
+        if role.name == role_name
+          results << "#{role.person.name} (#{role.name})"
+        end
+      end
+    end
+    results
   end
 
   def list_movies(person)
-    person.roles
-      .map(&:movie)
-      .uniq
-      .sort_by(&:year)
-      .map.with_index { |movie| "#{movie.title} (#{movie.year})" }
-  end
+    movies = []
+    person.roles.each do |role|
+      unless movies.include?(role.movie)
+        movies << role.movie
+      end
+    end
+    movies.sort_by!(&:year)  #  (&:year) is shorthand for { |o| o.year }
 
-  def summarize_roles(person)
-    person.roles
-      .group_by { |role| role.name}
-      .map { |role_name, roles| [role_name, roles.size] }
-      .sort_by { |role_name, count| [-count, role_name] }
+    results = []
+    movies.each.with_index do |movie|
+      results << "#{movie.title} (#{movie.year})"
+    end
+    results
   end
 end
 
