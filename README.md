@@ -39,39 +39,8 @@ The tests should run with some skips, but no failures or errors. Look for this a
 If you see that, you’re up and running. (Don’t worry about the “shadowing outer local variables” warnings.)
 
 
-## Part 1: Retail Transaction
+## Part 1: Going Loopless
 
-This problem asks you to do a lot of code reading, and a little code writing.
-
-In `lib/retail_transaction.rb`, you will find a rudimentary model of a sale on a point of sale system (or “cash register” as we normal humans call it). This class uses a gem called [Acts As State Machine](https://github.com/aasm/aasm) (“AASM” for short) to model the different states a transaction can be in:
-
-![Retail transaction states](doc/images/retail-transaction-states.svg)
-
-Note how the `aasm` section in the code looks as if Ruby has some kind of built-in handling for states and events and transition rules. It doesn’t. The aasm gem added that.
-
-Now take a look at `test/retail_transation_test.rb`. These tests describe all the expected behavior of a retail transaction in its various states. Things to note:
-
-- Each `it` block is a single test.
-- Each test takes an action or creates a paricular situation, then makes assertions about it.
-- The `let` block at the top creates a transaction we can use for testing. It is named `tx`. That `let` block runs over and over, once for each individual test, so each test begins with the same empty transaction. This is important: it means the tests do not depend on each other, so we can run them individually or in any order.
-- The `describe` blocks group logically related tests.
-- The `before` blocks run once before _each_ individual test within their group. They set up a state that all tests within the group share.
-
-(All of this is the [minitest/spec](https://github.com/seattlerb/minitest#specs) library if you want more documentation, though I think the best way to understand the structure is to read it.)
-
-Note that these tests use methods that `RetailTransaction` does not actually declare. AASM generates them using metaprogramming. Some test whether the object is in a particular state, e.g.`ringing_up?`. Some trigger a state transition event, e.g. `payment_authorized!`. There are many others the tests do not use, such as ones that test whether a given state transition is allowed, e.g. `may_refund?`.
-
-**Your task** is to add and test a new `refunded` state and `refund` event, so that the state diagram now looks like this:
-
-![Retail transaction states after you've done your work](doc/images/retail-transaction-states-after.svg)
-
-Adding the new state and new event will be easy; adding tests will be a little more tricky. Some hints:
-
-- Add a new test that ensures a settled order can be refunded.
-- Add tests to one or two other states that ensure they _cannot_ be refunded. (You don't need to add that to _every_ other state. Unit testing is all about picking good examples, not about explicitly making every possible scenario happen. Which states might another programmer carelessly assume would allow refunding? Test those.)
-- Add a new `describe` group for orders that are already refunded.
-- Test that transactions cannot be refunded a second time.
-- Test that a refunded order cannot be reopened.
 
 
 ## Part 2: Desugaring
@@ -87,18 +56,16 @@ Please note that **the desugaring is cumulative**. You should copy the answer fo
 You can test that all your desugared versions work correctly by running the project tests, `bundle exec rake test`. I strongly recommend that you **run the tests after each step of the desugaring** before copying your code forward to the next step.
 
 
-## Bonus: Metametaprogramming
-
-Not strictly necessary, but if you’ve completed the assignment and are looking for extra fun with Ruby:
+## Part 3: Metametaprogramming
 
 The code in `lib/door.rb` specifies a door with three independent state machines: one for whether it is open or closed, and one each for the deadbolt and the knob lock.
 
 The two locks affect the door state slightly differently: you can close a door if the knob is locked, but not the deadbolt. However, the two locks themselves have completely isomorphic state machine structures.
 
-**Your bonus task** is to use metaprogramming to generate the two lock state machines from a single template, so that the states and events of a lock only appear once in the code. This means that:
+**Your task** is to use metaprogramming to generate the two lock state machines from a single template, so that the states and events of a lock only appear once in the code. This means that:
 
 - you will use metaprogramming to generate two separate `aasm` definitions with the same structure
 - which will then use metaprogramming to generate that actual state machines and all their methods
 - which other code will then see as if you’d written out all the lock state machine code by hand.
 
-In short, you are metaprogramming metaprogramming. Welcome to Rubyland. This is tricky to figure out, but takes only a tiny bit of code when completed. Ask me for hints!
+In short, you are metaprogramming metaprogramming. Welcome to Rubyland. This is tricky to figure out, but takes only a _tiny_ bit of code when completed. Ask me for hints!
