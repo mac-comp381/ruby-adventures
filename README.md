@@ -64,6 +64,8 @@ When you are done:
 - Each method should consist of a single statement.
 - Each method should have less code than it started with.
 
+You **do not need to worry about efficiency** for this problem. If you get it working, that is sufficient!
+
 The following Ruby methods may help you:
 
 - `map`
@@ -74,7 +76,9 @@ The following Ruby methods may help you:
 - `uniq`
 - `with_index`
 
-Ask me for hints! And remember to run the tests early and often.
+Ask me for hints! The purpose is for you to get the feel of this style of working with collections, not for you to puzzle out every detail of an unfamiliar API all alone.
+
+Remember to run the tests early and often.
 
 
 ## Part 3: Metametaprogramming
