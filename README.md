@@ -39,11 +39,7 @@ The tests should run with some skips, but no failures or errors. Look for this a
 If you see that, you’re up and running. (Don’t worry about the “shadowing outer local variables” warnings.)
 
 
-## Part 1: Going Loopless
-
-
-
-## Part 2: Desugaring
+## Part 1: Desugaring
 
 Remember from class that “syntactic sugar” refers to features of a language’s syntax that make code easier to read and write, but do not provide any additional functionality. Ruby uses a lot of syntactic sugar.
 
@@ -54,6 +50,31 @@ That snippet of code uses many kinds of syntactic sugar. **Your task is to remov
 Please note that **the desugaring is cumulative**. You should copy the answer for each step forward to the next step, in the order the steps appear in the file. By the end, you should end up with a very different-looking implementation!
 
 You can test that all your desugared versions work correctly by running the project tests, `bundle exec rake test`. I strongly recommend that you **run the tests after each step of the desugaring** before copying your code forward to the next step.
+
+
+## Part 2: Going Loopless
+
+The methods in `GoingLoopless` all work with data about people working on movies. They are all correct, but they all take a very Java-like, loop-based approach to their jobs.
+
+Convert each of the four methods in `GoingLoopless` to use Ruby’s functional-stye list processing instead of loops.
+
+When you are done:
+
+- There should be no more calls to `each`.
+- Each method should consist of a single statement.
+- Each method should have less code than it started with.
+
+The following Ruby methods may help you:
+
+- `map`
+- `select`
+- `include?`
+- `sort_by`
+- `group_by`
+- `uniq`
+- `with_index`
+
+Ask me for hints! And remember to run the tests early and often.
 
 
 ## Part 3: Metametaprogramming
