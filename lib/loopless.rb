@@ -34,7 +34,7 @@ module GoingLoopless
     movies.sort_by!(&:year)  #  (&:year) is shorthand for { |o| o.year }
 
     results = []
-    movies.each.with_index do |movie|
+    movies.each do |movie|
       results << "#{movie.title} (#{movie.year})"
     end
     results

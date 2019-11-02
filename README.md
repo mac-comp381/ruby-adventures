@@ -56,7 +56,7 @@ You can test that all your desugared versions work correctly by running the proj
 
 The methods in `GoingLoopless` all work with data about people working on movies. They are all correct, but they all take a very Java-like, loop-based approach to their jobs.
 
-Convert each of the four methods in `GoingLoopless` to use Ruby’s functional-stye list processing instead of loops.
+Convert each of the three methods in `GoingLoopless` to use Ruby’s functional-stye list processing instead of loops.
 
 When you are done:
 
@@ -66,14 +66,16 @@ When you are done:
 
 You **do not need to worry about efficiency** for this problem. If you get it working, that is sufficient!
 
-The following Ruby methods may help you:
+Some of the following Ruby methods might help you:
 
 - `map`
 - `select`
 - `include?`
+- `any?`
 - `sort_by`
 - `group_by`
 - `uniq`
+- `find_index`
 - `with_index`
 
 Ask me for hints! The purpose is for you to get the feel of this style of working with collections, not for you to puzzle out every detail of an unfamiliar API all alone.
