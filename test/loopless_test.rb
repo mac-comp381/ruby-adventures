@@ -17,7 +17,7 @@ describe GoingLoopless do
   end
 
   it "builds a movie's credits" do
-    assert_equal [
+    assert_credits_match [
         "Delora Brekke (director)",
         "Johnnie Glover (actor)",
         "Willette Schowalter (key grip)",
@@ -28,12 +28,21 @@ describe GoingLoopless do
       ],
       build_credits(@married_a_city, ["director", "writer", "actor", "key grip", "producer"])
 
-    assert_equal [
+    assert_credits_match [
         "Maurine Kuhic (writer)",
         "Iluminada Halvorson (writer)",
         "Deane Shanahan (director)"
       ],
       build_credits(@electric_tears, ["key grip", "writer", "director"])
+  end
+
+  def assert_credits_match(expected, actual)
+    assert_equal Set.new(expected), Set.new(actual)  # same credits, any order
+    assert_equal just_roles(expected), just_roles(actual)  # same roles, any actors
+  end
+
+  def just_roles(credits)
+    credits.map { |c| c.gsub(/^.*\(/, "(") }
   end
 
   it "lists a peron's movies" do
