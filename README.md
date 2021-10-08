@@ -143,3 +143,22 @@ Feeling a bit stumped? Here are hints about each specific problem:
 Ask me for more hints! The purpose is for you to get the feel of this style of working with collections, not for you to puzzle out every detail of an unfamiliar API all alone.
 
 Remember to run the tests early and often.
+
+
+## Part 3 (OPTIONAL): DIY Metaprogramming
+
+This is for fun, and a little extra credit…if you want to give it a try.
+
+Take a look at at the examples in `lib/metaprogramming`:
+
+- `property.rb`: A simple example that reproduces Ruby’s built-in `attr_accessor` using `define_method`
+- `animal.rb`: A more complex example, also using `define_method`
+- `number_speller.rb`: A different sort of beast that uses `method_missing`
+
+Run each one, and study the code alongside the output. You can run one by typing, for example:
+
+    ruby lib/metaprogramming/property.rb
+
+Now, add your own example of metaprogramming to `lib/metaprogramming`, in a similar spirit as the existing ones. Feel free to steal any of the existing code for your own effect.
+
+What should your example do? Fool around! Be inventive!
