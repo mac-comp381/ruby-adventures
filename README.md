@@ -81,18 +81,3 @@ Some of the following Ruby methods might help you:
 Ask me for hints! The purpose is for you to get the feel of this style of working with collections, not for you to puzzle out every detail of an unfamiliar API all alone.
 
 Remember to run the tests early and often.
-
-
-## Part 3: Metametaprogramming
-
-The code in `lib/door.rb` specifies a door with three independent state machines: one for whether it is open or closed, and one each for the deadbolt and the knob lock.
-
-The two locks affect the door state slightly differently: you can close a door if the knob is locked, but not the deadbolt. However, the two locks themselves have completely isomorphic state machine structures.
-
-**Your task** is to use metaprogramming to generate the two lock state machines from a single template, so that the states and events of a lock only appear once in the code. This means that:
-
-- you will use metaprogramming to generate two separate `aasm` definitions with the same structure
-- which will then use metaprogramming to generate that actual state machines and all their methods
-- which other code will then see as if you’d written out all the lock state machine code by hand.
-
-In short, you are metaprogramming metaprogramming. Welcome to Rubyland. This is tricky to figure out, but takes only a _tiny_ bit of code when completed. Ask me for hints!
