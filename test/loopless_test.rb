@@ -23,7 +23,7 @@ describe GoingLoopless do
         "The Electric Tears from the Black Lagoon (1967)",
         "Day of the Nuclear Journals (1989)",
         "The Ninja from Asteroid 6083 (2006)",
-        "The Flying Identity from Across the Ocean (2016)"
+        "The Flying Identity of the Sunken City (2016)"
       ],
       list_movies(iluminada)
 
