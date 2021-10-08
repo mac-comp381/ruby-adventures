@@ -1,3 +1,5 @@
+require 'set'
+
 module GoingLoopless
   def find_all_in_role(role_name, people)
     results = []
