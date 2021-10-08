@@ -16,13 +16,31 @@ describe GoingLoopless do
       find_all_in_role("writer", [])
   end
 
+  it "lists a peron's movies" do
+    assert_equal [
+        "The Electric Tears from the Black Lagoon (1967)",
+        "Day of the Nuclear Journals (1989)",
+        "The Ninja from Asteroid 6083 (2006)",
+        "The Flying Identity from Across the Ocean (2016)"
+      ],
+      list_movies(@iluminada)
+
+    assert_equal [
+        "The Danger Hills That Came to Dinner (1945)",
+        "I am Clash (1946)",
+        "I Married a City (1967)",
+        "The Ninja from Asteroid 6083 (2006)"
+      ],
+      list_movies(@delora)
+  end
+
   it "builds a movie's credits" do
     assert_credits_match [
         "Delora Brekke (director)",
+        "Shantay Gerhold (writer)",
         "Johnnie Glover (actor)",
         "Willette Schowalter (key grip)",
         "Kimberli Quigley (producer)",
-        "Shantay Gerhold (producer)",
         "Ilya Harris (producer)",
         "Shantay Gerhold (producer)"
       ],
@@ -43,24 +61,6 @@ describe GoingLoopless do
 
   def just_roles(credits)
     credits.map { |c| c.gsub(/^.*\(/, "(") }
-  end
-
-  it "lists a peron's movies" do
-    assert_equal [
-        "The Electric Tears from the Black Lagoon (1967)",
-        "Day of the Nuclear Journals (1989)",
-        "The Ninja from Asteroid 6083 (2006)",
-        "The Flying Identity from Across the Ocean (2016)"
-      ],
-      list_movies(@iluminada)
-
-    assert_equal [
-        "The Danger Hills That Came to Dinner (1945)",
-        "I am Clash (1946)",
-        "I Married a City (1967)",
-        "The Ninja from Asteroid 6083 (2006)"
-      ],
-      list_movies(@delora)
   end
 
 
@@ -149,7 +149,7 @@ describe GoingLoopless do
     Role.new(name: "producer", person: @ilya, movie: @married_a_city)
     Role.new(name: "director", person: @deane, movie: @electric_tears)
     Role.new(name: "key grip", person: @yvette, movie: @dangerous_jungle)
-    Role.new(name: "producer", person: @shantay, movie: @married_a_city)
+    Role.new(name: "writer", person: @shantay, movie: @married_a_city)
     Role.new(name: "director", person: @rosamond, movie: @action_brain)
     Role.new(name: "producer", person: @johnnie, movie: @fake_friday)
     Role.new(name: "actor", person: @willette, movie: @action_brain)

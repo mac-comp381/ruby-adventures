@@ -125,7 +125,8 @@ module DesugaringExercises
   #
   #   foo.bar()
   #
-  # Copy the contents of the previous method here and remove this sugar.
+  # Copy the contents of the previous method here and remove this sugar. Be sure to look closely for
+  # every occurrence.
   #
   # At this point, you should have code that looks remarkably like Javascript. Not _exactly_ like it,
   # but structurally quite similar!
@@ -148,8 +149,7 @@ module DesugaringExercises
   # Copy the contents of the previous method here and remove this sugar.
   #
   # P.S. This one gets messy! Use line breaks and indentation to help.
-  # P.P.S. Note that whitespace is syntactic sugar too.
-  # P.P.P.S. For full credit on this one, note that addition is left-associative: the things on the left
+  # P.P.S. For full credit on this one, note that addition is left-associative: the things on the left
   #   get added before the things on the right. (a + b + c) means ((a + b) + c), NOT (a + (b + c)).
   #
   def desugared_operators(recipients, event, message)

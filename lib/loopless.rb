@@ -1,6 +1,9 @@
+require 'movie_data_model'
 require 'set'
 
 module GoingLoopless
+  # Returns all the people who have taken on the role with the given name.
+  #
   def find_all_in_role(role_name, people)
     results = []
     people.each do |person|
@@ -14,18 +17,9 @@ module GoingLoopless
     results
   end
 
-  def build_credits(movie, role_order)
-    results = []
-    role_order.each do |role_name|
-      movie.roles.each do |role|
-        if role.name == role_name
-          results << "#{role.person.name} (#{role.name})"
-        end
-      end
-    end
-    results
-  end
-
+  # List the titles and years of all the movies in which the given person played a role, in
+  # chronological order.
+  #
   def list_movies(person)
     movies = []
     person.roles.each do |role|
@@ -41,46 +35,20 @@ module GoingLoopless
     end
     results
   end
-end
 
-# ––– Data model –––
-
-class Person
-  attr_reader :name, :roles
-
-  def initialize(name:)
-    @name = name
-    @roles = []
-  end
-
-  def inspect
-    "Person(@name=#{name.inspect})"
-  end
-end
-
-class Role
-  attr_reader :name, :person, :movie
-
-  def initialize(name:, person:, movie:)
-    @name, @person, @movie = name, person, movie
-    @person.roles << self
-    @movie.roles << self
-  end
-
-  def inspect
-    "Role(@name=#{name.inspect}, @person=#{person.name.inspect}, @movie=#{movie.title.inspect})"
-  end
-end
-
-class Movie
-  attr_reader :title, :year, :roles
-
-  def initialize(title:, year:)
-    @title, @year = title, year
-    @roles = []
-  end
-
-  def inspect
-    "Movie(@title=#{title.inspect}, @year=#{year.inspect})"
+  # Creates a list of credits entry of the form "Person Name (role)", with the roles appearing in
+  # the order specified in role_order, and each person appearing multiple times if they took on
+  # multiple roles in the film.
+  #
+  def build_credits(movie, role_order)
+    results = []
+    role_order.each do |role_name|
+      movie.roles.each do |role|
+        if role.name == role_name
+          results << "#{role.person.name} (#{role.name})"
+        end
+      end
+    end
+    results
   end
 end

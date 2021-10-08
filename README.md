@@ -36,14 +36,14 @@ The tests should run with some skips, but no failures or errors. Look for this a
 ... 0 failures, 0 errors ...
 ```
 
-If you see that, you’re up and running. (Don’t worry about the “shadowing outer local variables” warnings.)
+If you see that, you’re up and running.
 
 
 ## Part 1: Desugaring
 
 Remember from class that “syntactic sugar” refers to features of a language’s syntax that make code easier to read and write, but do not provide any additional functionality. Ruby uses a lot of syntactic sugar.
 
-Look at `lib/desugaring.rb`. The first method, `all_the_sugar`, contains a tiny snippet of somewhat realistic code from an imaginary web invitation system. (Actual email generation in Rails looks very similar to this.)
+Look at `lib/desugaring.rb`. The first method, `all_the_sugar`, contains a tiny snippet of somewhat realistic code from an imaginary web invitation system. (Actual email generation in Ruby on Rails looks very similar to this.)
 
 That snippet of code uses many kinds of syntactic sugar. **Your task is to remove the sugar,** one step at a time. For each method below, remove `implement_me` and replace it with the contents of the previous method in the file minus the particular kind of sugar the comment describes.
 
@@ -61,7 +61,7 @@ Convert each of the three methods in `GoingLoopless` to use Ruby’s functional-
 When you are done:
 
 - There should be no more calls to `each`.
-- Each method should consist of a single statement.
+- Each method should consist of a **single** statement, no variable assignments and no list mutations.
 - Each method should have less code than it started with.
 
 You **do not need to worry about efficiency** for this problem. If you get it working, that is sufficient!
@@ -78,6 +78,45 @@ Some of the following Ruby methods might help you:
 - `find_index`
 - `with_index`
 
-Ask me for hints! The purpose is for you to get the feel of this style of working with collections, not for you to puzzle out every detail of an unfamiliar API all alone.
+Feeling a bit stumped? Here are hints about each specific problem:
+
+<details>
+  <summary>Click for a hint about find_all_in_role:</summary>
+  
+  > You can do this one with `select`, `map`, and `include?`.
+  >
+  > <details>
+  >  <summary>Click for a more specific hint</summary>
+  >
+  >  1. Figure out how to get the array of roles one specific person has been in.
+  >  2. Figure out how to get the array of _names_ of roles a person has been in.
+  >  3. Figure out how to check whether that contains a specific role name.
+  >  4. Now apply that test to each person, and select the ones who match.
+  > </details>
+</details>
+
+<details>
+  <summary>Click for a hint about list_movies:</summary>
+
+
+  For this one, read about:
+  - `map`
+  - `uniq`
+  - `sort_by`
+</details>
+
+<details>
+  <summary>Click for a hint about build_credits:</summary>
+
+  For this one, read about:
+  - `include?`
+  - `map`
+  - `find_index`
+  - `select`
+  - `sort_by`
+</details>
+
+
+Ask me for more hints! The purpose is for you to get the feel of this style of working with collections, not for you to puzzle out every detail of an unfamiliar API all alone.
 
 Remember to run the tests early and often.
