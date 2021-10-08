@@ -1,0 +1,11 @@
+{
+  "name": "WOGL",
+  "tags": ["esolang"],
+  "year": "1986",
+  "links": [
+    {
+      "title": "Interactive playground",
+      "url": "https://wogl.innig.net"
+    }
+  ]
+}

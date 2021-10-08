@@ -10,5 +10,9 @@
   "oop": {
     "name": "Object-oriented",
     "about": "https://en.wikipedia.org/wiki/Object-oriented_programming"
+  },
+  "esolang": {
+    "name": "Esoteric",
+    "about": "https://en.wikipedia.org/wiki/Esoteric_programming_language"
   }
 }

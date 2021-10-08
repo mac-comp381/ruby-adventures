@@ -19,6 +19,10 @@ end
     <main>
       <h1><%= lang.name %></h1>
 
+      <p>
+        Year: <%= lang.year %>
+      </p>
+
       <% if lang.tags? %>
         <h2>Tags</h2>
         <ul>
