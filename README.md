@@ -54,9 +54,9 @@ You can test that all your desugared versions work correctly by running the proj
 
 ## Part 2: Going Loopless
 
-The methods in `GoingLoopless` all work with data about people working on movies. They are all correct, but they all take a very Java-like, loop-based approach to their jobs.
+The methods in `lib/loopless.rb` all work with data about people working on movies. They are all correct, but they all take a very Java-like, loop-based approach to their jobs.
 
-Convert each of the three methods in `GoingLoopless` to use Ruby’s functional-stye list processing instead of loops.
+Convert each of the three methods in this file to use Ruby’s functional-stye list processing instead of loops.
 
 When you are done:
 
@@ -78,6 +78,30 @@ Some of the following Ruby methods might help you:
 - `find_index`
 - `with_index`
 
+You will probably find it helpful to experiment with movie test data using Ruby’s interactive mode:
+
+- Open a terminal / Powershell / command line **in the project directory** (cd to it if necessary).
+- Type `irb`. You should see a prompt something like `3.0.2 :001 >`. You can type Ruby here and see what it does.
+- Now copy and paste these two lines into irb:
+
+      require_relative 'test/movie_test_data'
+      include MovieTestData
+
+  The first line reads the Ruby source code containing movie test data, and the second line includes that test code directly in your irb environment.
+
+  (If the first line fails, you are probably in the wrong directory.)
+- You can now refer to specific pieces of test data directly in irb. Try typing `people`, `movies`, `maurine`, and `electric_tears` in irb. Look at `test/movie_test_data.rb` to see all the test data.
+- Experiment with the test data to help you solve the problems. For example, try:
+
+      movies.map(&:title)
+      movies.map(&:year)
+      people.select { |person| person.name.include?("y") }
+      deane.roles
+      deane.roles.map(&:movie)
+      deane.roles.map(&:movie).uniq
+
+Once these experiments start to feel comfortable, work on the puzzles in `lib/loopless.rb`. **Remember to run the tests!** You will probably want to keep one terminal window open for your irb experiments, and a second window open for running the tests.
+
 Feeling a bit stumped? Here are hints about each specific problem:
 
 <details>
@@ -98,24 +122,23 @@ Feeling a bit stumped? Here are hints about each specific problem:
 <details>
   <summary>Click for a hint about list_movies:</summary>
 
-
-  For this one, read about:
-  - `map`
-  - `uniq`
-  - `sort_by`
+  > For this one, read about:
+  > - `map`
+  > - `uniq`
+  > - `sort_by`
 </details>
 
 <details>
   <summary>Click for a hint about build_credits:</summary>
 
-  For this one, read about:
-  - `include?`
-  - `map`
-  - `find_index`
-  - `select`
-  - `sort_by`
+  > For this one, read about:
+  > - `include?`
+  > - `map`
+  > - `find_index`
+  > - `select`
+  > - `sort_by`
 </details>
-
+<br>
 
 Ask me for more hints! The purpose is for you to get the feel of this style of working with collections, not for you to puzzle out every detail of an unfamiliar API all alone.
 
