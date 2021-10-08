@@ -159,6 +159,6 @@ Run each one, and study the code alongside the output. You can run one by typing
 
     ruby lib/metaprogramming/property.rb
 
-Now, add your own example of metaprogramming to `lib/metaprogramming`, in a similar spirit as the existing ones. Feel free to steal any of the existing code for your own effect.
+Now, add your own example of metaprogramming to `lib/metaprogramming`, in a similar spirit as the existing ones. Feel free to steal any of the existing code for your own effort.
 
 What should your example do? Fool around! Be inventive!
