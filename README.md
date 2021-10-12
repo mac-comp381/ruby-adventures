@@ -152,9 +152,9 @@ This is for fun, and a little extra credit…if you want to give it a try.
 
 Take a look at at the examples in `lib/metaprogramming`:
 
-- `property.rb`: A simple example that reproduces Ruby’s built-in `attr_accessor` using `define_method`
-- `animal.rb`: A more complex example, also using `define_method`
-- `number_speller.rb`: A different sort of beast that uses `method_missing`
+- `property.rb`: A simple example that reproduces Ruby’s built-in `attr_accessor` using `define_method`.
+- `animal.rb`: A more complex example, also using `define_method`.
+- `number_speller.rb`: A different sort of beast that uses `method_missing`. (It’s a bit diabolical. Can you figure out how it works?)
 
 Run each one, and study the code alongside the output. You can run one by typing, for example:
 
