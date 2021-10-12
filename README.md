@@ -131,10 +131,11 @@ Feeling a bit stumped? Here are hints about each specific problem:
 <details>
   <summary>Click for a hint about build_credits:</summary>
 
-  > For this one, read about:
+  > There are several ways to solve this one! Here are several methods that could help — and note that you will _not_ need all of them:
   > - `include?`
   > - `map`
   > - `find_index`
+  > - `flat_map`
   > - `select`
   > - `sort_by`
 </details>
