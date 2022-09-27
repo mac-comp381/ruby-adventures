@@ -1,4 +1,4 @@
-# Programming Languages: Ruby Exercises
+# Programming Languages: Ruby Adventures
 
 This assignment asks you to do several programming tasks designed to give you a feel for the Ruby language.
 
