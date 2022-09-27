@@ -1,6 +1,8 @@
 # ------ Base class with metaprogramming ------
 
 class Object
+  # A simple version of Ruby’s built-in attr_accessor.
+  #
   def self.property(*prop_names)  # the asterisk means zero or more arguments
     prop_names.each do |prop_name|
       ivar_name = "@#{prop_name}"

@@ -9,7 +9,7 @@ class NumberSpeller
     @value = value
   end
 
-  def method_missing(name, *args)
+  def method_missing(name, *args)  # This method is the truly interesting part!
     if digit = DIGIT_NAMES.index(name)
       NumberSpeller.new(
         base: @base,
@@ -27,21 +27,48 @@ class NumberSpeller
     to_i.to_s
   end
 
-  DIGIT_NAMES = %i(
-    zero one two three four five six seven eight nine ten
-    eleven twelve thirteen fourteen fifteen
-  )
+  decimal_digits = %i(zero one two three four five six seven eight nine)
+
+  DIGIT_NAMES = [
+    decimal_digits,
+    %i(ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen),
+    %w(
+      twenty thirty forty fifty sixty seventy eighty ninety
+    ).product(decimal_digits).map do |tens, ones|
+      "#{tens}_#{ones}"
+        .delete_suffix('_zero')  # we want "twenty" instead of "twenty_zero"
+        .to_sym
+    end
+  ].flatten.freeze
 end
 
-# ------ Code that uses the metaprogramming ------
+puts "------ All available digit names ------ "
 
-binary = NumberSpeller.new(base: 2)
-decimal = NumberSpeller.new(base: 10)
-hex = NumberSpeller.new(base: 16)
+NumberSpeller::DIGIT_NAMES.each.with_index do |name, i|
+  puts "#{i} #{name}"
+end
 
-puts "COMP #{decimal.three.eight.one} is in OLRI #{hex.fifteen.fourteen}"
+puts
+puts "------ Code that uses the metaprogramming ------"
 
-puts "--- one.one.zero.one ---"
-puts "binary:  #{ binary.one.one.zero.one}"
-puts "decimal: #{decimal.one.one.zero.one}"
-puts "hex:     #{    hex.one.one.zero.one}"
+binary      = NumberSpeller.new(base: 2)
+decimal     = NumberSpeller.new(base: 10)
+hex         = NumberSpeller.new(base: 16)
+sexagesimal = NumberSpeller.new(base: 60)
+
+puts <<_EOS_
+
+  one.one.zero.one in...
+    binary:  #{ binary.one.one.zero.one}
+    decimal: #{decimal.one.one.zero.one}
+    hex:     #{    hex.one.one.zero.one}
+
+  COMP #{binary.one.one.one.one.one.one.one} is in OLRI #{hex.one.zero.zero}
+  COMP #{decimal.three.eight.one} is in OLRI #{sexagesimal.four.fourteen}
+
+  The Sumerians used sexagesimal. And guess what? So do we!
+  It still shows up in our modern-day time and angle units.
+  For example, 11:48 AM is #{sexagesimal.eleven.forty_eight} minutes into the day,
+  and there are #{sexagesimal.six.zero} degrees in a circle.
+
+_EOS_
