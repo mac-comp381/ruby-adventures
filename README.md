@@ -131,7 +131,7 @@ Feeling a bit stumped? Here are hints about each specific problem:
 <details>
   <summary>Click for a hint about build_credits:</summary>
 
-  > There are several ways to solve this one! Here are several methods that could help — and note that you will _not_ need all of them:
+  > There are several ways to solve this one! Here are methods that could help — and note that while all of them are useful in _some_ possible solution, you will not need all of them in any one _particular_ solution:
   > - `include?`
   > - `map`
   > - `find_index`
