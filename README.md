@@ -146,9 +146,9 @@ Ask me for more hints! The purpose is for you to get the feel of this style of w
 Remember to run the tests early and often.
 
 
-## Part 3 (OPTIONAL): DIY Metaprogramming
+## Part 3 (optional): DIY Metaprogramming
 
-This is for fun, and a little extra credit…if you want to give it a try.
+If the first two parts of the assignment were enough for you to chew on, you can stop here. If you are look for something extra creative and fun, venture onward!
 
 Take a look at at the examples in `lib/metaprogramming`:
 
