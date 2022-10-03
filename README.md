@@ -160,6 +160,8 @@ Run each one, and study the code alongside the output. You can run one by typing
 
     ruby lib/metaprogramming/property.rb
 
+With each of these examples, it may be easier to start with the bottom section of the code: look at how the metaprogramming is _used_ first, then look at how it is implemented.
+
 Now, add your own example of metaprogramming to `lib/metaprogramming`, in a similar spirit as the existing ones. Feel free to steal any of the existing code for your own effort.
 
 What should your example do? Fool around! Be inventive!

@@ -1,5 +1,7 @@
 module DesugaringExercises
 
+  # Here is your starting point: a very Ruby-like snippet of code from an imaginary web app.
+  #
   def all_the_sugar(recipients, event, message)
     mail message,
       to: recipients.map(&:email),
