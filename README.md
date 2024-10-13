@@ -1,6 +1,6 @@
 # Programming Languages: Ruby Adventures
 
-This assignment asks you to do several programming tasks designed to give you a feel for the Ruby language.
+This assignment asks you to do several programming tasks designed to give you a feel for the Ruby language, and explore the possibilities it creates.
 
 As you work through these tasks, consider: How would you implement this same task in Java? In Python? How does your development experience differ from those other languages? Get beyond the immediate shock of seeing unfamiliar syntax. Where do you find your attention going as you code in this language vs. the others? Why? What language features shape these differences?
 
@@ -9,7 +9,7 @@ As you work through these tasks, consider: How would you implement this same tas
 
 ## Part 0: Getting oriented and set up
 
-This project depends on several third-party libraries, which Ruby calls “[gems](https://rubygems.org).” Like most Ruby projects, this project uses [Bundler](http://bundler.io) to manage its gem dependencies and their versions. Together, Gems and Bundler are a “package manager.” (You may be familiar with other package managers: pip in Python and npm in Javascript. Both of those are based on RubyGems and Bundler.)
+This project depends on several third-party libraries, which Ruby calls “[gems](https://rubygems.org).” Like most Ruby projects, this project uses [Bundler](http://bundler.io) to manage its gem dependencies and their versions. Together, Gems and Bundler are a “package manager.” (You may be familiar with other package managers: pip in Python and npm in Javascript. Both of those were directly influenced by RubyGems and Bundler.)
 
 Take a look at `Gemfile`. It specifies which gems this project depends on, where to install them from, and optionally constraints on which version of the gem to use. (Note that `Gemfile` is itself Ruby code!)
 
@@ -148,7 +148,7 @@ Remember to run the tests early and often.
 
 ## Part 3 (optional): DIY Metaprogramming
 
-If the first two parts of the assignment were enough for you to chew on, you can stop here. If you are look for something extra creative and fun, venture onward!
+If the first two parts of the assignment were enough for you to chew on, you can stop here. If you are look for something extra creative and fun and uniquely Ruby-esque, venture onward!
 
 Take a look at at the examples in `lib/metaprogramming`:
 
