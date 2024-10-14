@@ -19,8 +19,7 @@ module GoingLoopless
   # the order specified in role_order, and each person appearing multiple times if they took on
   # multiple roles in the film. 
   #
-  def build_credits(movie, role_order) # ["director", "writer", "actor", "key grip"]
-    role_order.map { |role_name| movie.roles.select { |role| role.name.include?(role_name) }.map 
-        { |entry| "#{entry.person.name} (#{entry.name})"  } }
+  def build_credits(movie, role_order)
+    role_order.map { |role_name| movie.roles.select { |role| role.name.include?(role_name) }.map { |entry| "#{entry.person.name} (#{entry.name})"  } }.flatten
   end
 end
