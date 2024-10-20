@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "3.3.5"
+ruby "3.1.3"
 
 group :development do
   gem "rake"
