@@ -4,17 +4,16 @@ require 'set'
 module GoingLoopless
   # Returns all the people who have taken on the role with the given name.
   #
+  def get_people
+    # code here
+  end
+
   def find_all_in_role(role_name, people)
-    results = []
-    people.each do |person|
-      person.roles.each do |role|
-        if role.name == role_name
-          results << person
-          break
-        end
+    people.select do |person|
+      if person.roles.any? { |role| role.name == role_name }
+        true
       end
     end
-    results
   end
 
   # List the titles and years of all the movies in which the given person played a role, in
