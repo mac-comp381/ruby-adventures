@@ -5,6 +5,7 @@ module GoingLoopless
   # Returns all the people who have taken on the role with the given name.
   #
   def find_all_in_role(role_name, people)
+    # ((people.map {|person| person.name}).map {|role| role.name}).include?(role_name).select {|person| role.name == role_name}
     results = []
     people.each do |person|
       person.roles.each do |role|
