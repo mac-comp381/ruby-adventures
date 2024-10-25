@@ -4,10 +4,6 @@ require 'set'
 module GoingLoopless
   # Returns all the people who have taken on the role with the given name.
   #
-  def get_people
-    # code here
-  end
-
   def find_all_in_role(role_name, people)
     people.select do |person|
       if person.roles.any? { |role| role.name == role_name }
@@ -20,19 +16,10 @@ module GoingLoopless
   # chronological order.
   #
   def list_movies(person)
-    movies = []
-    person.roles.each do |role|
-      unless movies.include?(role.movie)
-        movies << role.movie
-      end
-    end
-    movies.sort_by!(&:year)  #  (&:year) is shorthand for { |o| o.year }
-
-    results = []
-    movies.each do |movie|
-      results << "#{movie.title} (#{movie.year})"
-    end
-    results
+    person.roles.map(&:movie) # Get the movies they're in
+          .uniq # Deduplicate
+          .sort_by(&:year)
+          .map { |movie| "#{movie.title} (#{movie.year})"} # Make it nice to read
   end
 
   # Creates a list of credits entry of the form "Person Name (role)", with the roles appearing in
