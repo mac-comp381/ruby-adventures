@@ -27,14 +27,16 @@ module GoingLoopless
   # multiple roles in the film.
   #
   def build_credits(movie, role_order)
-    results = []
-    role_order.each do |role_name|
-      movie.roles.each do |role|
-        if role.name == role_name
-          results << "#{role.person.name} (#{role.name})"
-        end
-      end
-    end
-    results
+    movie.roles.sort_by { |role| role_order.find_index(role.name) }
+         .map { |role| "#{role.person.name} (#{role.name})"} # This is giving the wrong sort within a role.
+    # results = []
+    # role_order.each do |role_name|
+    #   movie.roles.each do |role|
+    #     if role.name == role_name
+    #       results << "#{role.person.name} (#{role.name})"
+    #     end
+    #   end
+    # end
+    # results
   end
 end
