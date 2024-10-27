@@ -19,7 +19,7 @@ describe DesugaringExercises do
   end
 
   let :sample_message do
-    "Syntactic sugar: mind-exapanding or addictive? Let’s find out!"
+    "Syntactic sugar: mind-exapanding or addictive? Let's find out!"
   end
 
   DesugaringExercises.instance_methods.each do |variant|
@@ -40,7 +40,7 @@ describe DesugaringExercises do
           sample_message,
           {
             to: sample_emails,
-            subject: "You’re invited to a Syntactic Sugar Party on March 12"
+            subject: "You're invited to a Syntactic Sugar Party on March 12"
           }
         ],
         exercise.mail_calls.first,
