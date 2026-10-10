@@ -1,0 +1,14 @@
+{
+  "static_type": {
+    "name": "Statically typed",
+    "about": "https://en.wikipedia.org/wiki/Type_system#Static_typing"
+  },
+  "dyn_type": {
+    "name": "Dynamically typed",
+    "about": "https://en.wikipedia.org/wiki/Type_system#DYNAMIC"
+  },
+  "oop": {
+    "name": "Object-oriented",
+    "about": "https://en.wikipedia.org/wiki/Object-oriented_programming"
+  }
+}

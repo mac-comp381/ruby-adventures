@@ -1,0 +1,18 @@
+{
+  "name": "Java",
+  "tags": ["oop", "static_type"],
+  "links": [
+    {
+      "title": "Oracle implementation",
+      "url": "https://www.oracle.com/java/"
+    },
+    {
+      "title": "OpenJDK implementation",
+      "url": "https://openjdk.org"
+    },
+    {
+      "title": "Adoptium Temurin distribution",
+      "url": "https://adoptium.net/temurin/"
+    }
+  ]
+}

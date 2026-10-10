@@ -1,0 +1,10 @@
+{
+  "name": "Python",
+  "tags": ["oop", "dyn_type"],
+  "links": [
+    {
+      "title": "Official home page",
+      "url": "https://www.python.org"
+    }
+  ]
+}

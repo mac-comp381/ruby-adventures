@@ -1,0 +1,31 @@
+–––––––––––– template.erb ––––––––––––
+
+<html lang="en">
+  <%= partial "_page_head", page_title: nil %>
+
+  <body>
+    <h1>Atlas of Programming Languages</h1>
+
+    <h2>Tags</h2>
+    <ul>
+      <% data.tags.values.sort_by(&:name).each do |tag| %>
+        <li>
+          <a href="/tags/<%= tag.id %>.html">
+            <%= tag.name %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+
+    <h2>Languages</h2>
+    <ul>
+      <% data.languages.values.sort_by(&:name).each do |lang| %>
+        <li>
+          <a href="/lang/<%= lang.id %>.html">
+            <%= lang.name %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

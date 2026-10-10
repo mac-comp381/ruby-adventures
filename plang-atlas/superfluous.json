@@ -1,0 +1,9 @@
+{
+  "ignore": [
+    ".DS_Store",
+    "•*",
+    "(*).*"
+  ],
+  "data_parsers": [ "JSON", "YAML" ],
+  "lib": []
+}

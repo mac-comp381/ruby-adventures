@@ -1,0 +1,37 @@
+–––––––––––– script.rb ––––––––––––
+
+def build
+  data.tags.each do |tag|
+    langs = data.languages.values.select do |lang|
+      (lang.tags? || []).include?(tag.id.to_s)
+    end
+
+    render(tag:, langs:, page_title: "#{tag.name} languages")
+  end
+end
+
+–––––––––––– template.erb ––––––––––––
+
+<html lang="en">
+  <%= partial "_page_head", page_title: %>
+
+  <body>
+    <nav>
+      <a href="/">⬆︎ P-Lang Atlas</a>
+    </nav>
+
+    <main>
+      <h1><%= page_title %></h1>
+
+      <ul>
+        <% langs.each do |lang| %>
+          <li>
+            <a href="/lang/<%= lang.id %>.html">
+              <%= lang.name %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </main>
+  </body>
+</html>
