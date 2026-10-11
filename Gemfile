@@ -11,6 +11,10 @@ group :test do
   gem "minitest-reporters"
 end
 
+gem "ostruct", "~> 0.6.3"
+
+# plang-atlas dependencies:
+
 gem "superfluous", git: "https://codeberg.org/pcantrell/superfluous.git", branch: "main"
 gem "adsf", git: "https://github.com/pcantrell/adsf", branch: "superfluous"
 gem "adsf-live", git: "https://github.com/pcantrell/adsf", branch: "superfluous"
