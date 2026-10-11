@@ -23,6 +23,10 @@ end
     <main>
       <h1><%= page_title %></h1>
 
+      <p>
+        <a href="<%= tag.about %>">About</a>
+      </p>
+
       <ul>
         <% langs.each do |lang| %>
           <li>
