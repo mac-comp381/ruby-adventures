@@ -10,5 +10,9 @@
   "oop": {
     "name": "Object-oriented",
     "about": "https://en.wikipedia.org/wiki/Object-oriented_programming"
+  },
+  "functional": {
+  "name": "Functional",
+  "about": "https://en.wikipedia.org/wiki/Functional_programming"
   }
 }

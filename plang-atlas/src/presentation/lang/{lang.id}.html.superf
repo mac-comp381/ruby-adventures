@@ -18,6 +18,16 @@ end
 
     <main>
       <h1><%= lang.name %></h1>
+      <% if lang.year? %>
+        <p>Year : <%= lang.year %></p>
+      <% end %>
+      <% if lang.description? %>
+        <p>Description: <%= lang.description %></p>
+      <% end %>
+      <% if lang.who_uses_it? %>
+        <p>Who uses it: <%= lang.who_uses_it %></p>
+      <% end %>
+
 
       <% if lang.tags? %>
         <h2>Tags</h2>

@@ -1,0 +1,6 @@
+1. The main difference in step 1 is `desugared_operators`: My code did not include extra parentheses to show the evaluation order, 
+while the solution did. I learned that explicit parentheses make it clearer that the additions happen 
+from left to right.
+2. Part 2 felt unfamiliar at firstbut, but thinking of each operation as a mathematical function that takes an input and produces 
+an output made it easier to understand.
+3. Part 3 is much more fun. Seeing the website update automatically when I changed the data felt like magic.

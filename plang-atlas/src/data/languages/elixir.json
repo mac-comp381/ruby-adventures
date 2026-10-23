@@ -1,0 +1,13 @@
+{
+  "name": "Elixir",
+  "tags": ["dyn_type", "functional"],
+  "year": 2012,
+  "description": "Elixir is a modern, functional, and compiled programming language designed to run on the BEAM virtual machine (Erlang VM) for building scalable, high-concurrency, and fault-tolerant distributed applications.",
+  "who_uses_it": "Discord, Pinterest",
+  "links": [
+    {
+      "title": "Official home page",
+      "url": "https://elixir-lang.org"
+    }
+  ]
+}
