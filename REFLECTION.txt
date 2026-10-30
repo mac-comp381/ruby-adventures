@@ -1,0 +1,12 @@
+I found our solutions to bevery similar. In desugared_attr_proc, the code is the same except for 
+the block parameter name (I had user vs. you had recipient), which is a local variable so I think
+there is virtually no difference. When looking at the solution I also realized that I should focus
+on learning more about the correct spacing and indentations in ruby, I would always keep the parentheses
+on the line where the code finished instead of hitting enter and having it on a different line. Also for 
+build_credits I omitted do in my code and just created a block by using curly braces.
+
+Overall, I learned QUITE a bit about ruby. I found part 2 challenging but rewarding, and really appreciated
+part 3. While the code that I needed to do was super straightforward, I really enjoyed that I got to look at 
+HTML code for the first time in my life in an assignment and be able to edit an actual website!
+So cool. It was also cool to run it from the terminal. Also for part to I found the irb terminal ability really
+cool as well.

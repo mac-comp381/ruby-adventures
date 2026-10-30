@@ -10,5 +10,9 @@
   "oop": {
     "name": "Object-oriented",
     "about": "https://en.wikipedia.org/wiki/Object-oriented_programming"
+  },
+  "lisp_family": {
+    "name": "Lisp Family",
+    "about": "https://en.wikipedia.org/wiki/List_of_Lisp-family_programming_languages"
   }
 }
