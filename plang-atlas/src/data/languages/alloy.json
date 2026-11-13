@@ -1,0 +1,11 @@
+{
+    "name": "Alloy",
+    "year": 1997,
+    "tags": ["formal_spec"],
+    "links": [
+        {
+            "title": "Official home page",
+            "url": "https://alloytools.org"
+        }
+    ]
+}

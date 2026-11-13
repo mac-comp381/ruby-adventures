@@ -1,0 +1,5 @@
+One thing that stood out to me in Part 1 was that I added self. and parentheses in separate steps, while the official solution added them together earlier. I think separating these steps makes it easier to see how each layer of syntactic sugar is removed. I also noticed that nested parentheses make the order of operations clearer.
+
+In Part 3, I stored the year as a number (1995), while the official solution stored it as text ("1995"). I also used if lang.year? before displaying it so the code can handle a missing year.
+
+In Part 2, our solutions were close. I also tried a sort_by version, but I filtered after building the strings. The alternative solution filtered the roles first, which is cleaner.

@@ -10,5 +10,9 @@
   "oop": {
     "name": "Object-oriented",
     "about": "https://en.wikipedia.org/wiki/Object-oriented_programming"
+  },
+  "formal_spec": {
+    "name": "Formal Specification",
+    "about": "https://en.wikipedia.org/wiki/Formal_specification"
   }
 }
